@@ -1,0 +1,23 @@
+[project]
+name = "multi-agent-assistant"
+version = "0.2.0"
+description = "多 Agent 协作智囊团 —— LangGraph 编排的规划/执行/批判/汇总四角色分析流水线,带自我改进循环。"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langgraph>=1.0",
+    "langchain-openai>=1.0",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    "typer>=0.12",
+]
+
+[project.scripts]
+think-tank = "multi_agent.cli:app"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["multi_agent*"]
