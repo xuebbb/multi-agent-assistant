@@ -15,13 +15,14 @@ flowchart LR
 ## 核心特性
 
 - **多角色协作**:规划 / 执行 / 批判 / 汇总 四个 Agent 分工,同一模型戴不同"角色提示词"。
+- **联网搜索**:执行者分析前先通过 DuckDuckGo 搜索拿真实信息,基于事实分析而非凭空编;批判者会检查分析是否引用了搜索证据。
 - **自我改进循环**:批判者不满意 → 把分析打回执行者,带着意见重做。
 - **安全阀**:重做有次数上限(最多 3 次),避免无限循环烧 token。
 - **提示词外置**:角色人设写在 `config/prompts.yaml`,改人设不动代码。
 
 ## 技术栈
 
-[LangGraph](https://github.com/langchain-ai/langgraph) · DeepSeek API(OpenAI 兼容) · Typer · PyYAML
+[LangGraph](https://github.com/langchain-ai/langgraph) · DeepSeek API(OpenAI 兼容) · DuckDuckGo Search · Typer · PyYAML
 
 ## 快速开始
 
@@ -46,7 +47,7 @@ python main.py "现在学习 agent 应用开发的优劣"
 
 ## 后续规划
 
-- [ ] 给执行者接入联网搜索工具(从"纯 LLM 嘴替"升级为能调工具的真 Agent)
+- [x] 给执行者接入联网搜索工具(从"纯 LLM 嘴替"升级为基于事实分析的真 Agent)
 - [ ] 加 Web 界面(Streamlit / Gradio)
 
 ---
